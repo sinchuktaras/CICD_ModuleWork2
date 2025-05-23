@@ -9,7 +9,7 @@ class ImageModelTest(TestCase):
             title='Test Image',
             description='A test image',
             image='gallery/test.jpg',
-            created_at=timezone.now()
+            created_date=timezone.now()
         )
         self.assertEqual(str(image), 'Test Image')
 
@@ -24,7 +24,10 @@ class ImageDetailViewTest(TestCase):
             title='Detail Image',
             description='Detail',
             image='gallery/test.jpg',
-            created_at=timezone.now()
+            created_date=timezone.now()
         )
         response = self.client.get(reverse('image_detail', args=[image.id]))
         self.assertEqual(response.status_code, 200)
+
+
+
