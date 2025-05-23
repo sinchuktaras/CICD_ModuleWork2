@@ -13,6 +13,7 @@ class Image(models.Model):
     image = models.ImageField(upload_to='gallery_images/')
     categories = models.ManyToManyField(Category, blank=True)
     created_date = models.DateField()
+    description = models.TextField(blank=True)
     age_limit = models.PositiveIntegerField()
 
     def __str__(self):
