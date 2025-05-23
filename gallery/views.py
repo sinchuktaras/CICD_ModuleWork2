@@ -4,9 +4,10 @@ from django.utils import timezone
 from datetime import timedelta
 
 def gallery_view(request):
-    month_ago = timezone.now() - timedelta(days=30)
-    images = Image.objects.filter(created_at__gte=month_ago)
+    month_ago = timezone.now().date() - timedelta(days=30)  #
+    images = Image.objects.filter(created_date__gte=month_ago)
     return render(request, 'gallery.html', {'images': images})
+
 
 def image_detail(request, image_id):
     image = get_object_or_404(Image, id=image_id)
