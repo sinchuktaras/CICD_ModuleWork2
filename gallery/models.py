@@ -14,7 +14,7 @@ class Image(models.Model):
     categories = models.ManyToManyField(Category, blank=True)
     created_date = models.DateField()
     description = models.TextField(blank=True)
-    age_limit = models.PositiveIntegerField()
+    age_limit = 18
 
     def __str__(self):
         return self.title
